@@ -43,7 +43,7 @@ Biine/
 │   ├── Data/            # AppDbContext
 │   ├── Models/          # EF Core entities
 │   └── Program.cs
-└── biine-web/           # Astro frontend (to be created)
+└── Biine.WEB/           # Astro frontend (to be created)
     ├── src/
     │   ├── components/  # React islands
     │   ├── pages/

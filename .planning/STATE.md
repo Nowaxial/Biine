@@ -6,8 +6,8 @@
 
 ## Current Position
 
-**Phase:** 03 — Restaurant Seeder  
-**Status:** Phases 01 + 02 complete. Ready to execute Phase 03.
+**Phase:** 05 — Swipe Deck  
+**Status:** Phases 01–04 complete. Writing plans for Phase 05.
 
 ## What Exists
 
@@ -24,12 +24,16 @@
 - EF Core retry on failure (3 retries, 5s delay) for Neon cold starts
 
 ### Frontend
-- Nothing yet
+- ✅ Biine.WEB/ scaffolded — Astro + React + Mantine v7 + @vite-pwa/astro
+- ✅ AppShell.tsx — root island owning MantineProvider (all Mantine children go here)
+- ✅ OnboardingOverlay.tsx — 3 slides, skip, localStorage flag (biine_onboarding_done)
+- Key pattern: ALL Mantine components must be children of AppShell (not separate client:load islands)
 
 ### Database (Neon PostgreSQL)
 - ✅ Schema deployed — 5 tables: `Recipes`, `Restaurants`, `Interactions`, `Translations`, `__EFMigrationsHistory`
 - ✅ 25 recipes seeded
 - ✅ 28 translation strings seeded
+- ✅ 42 restaurants seeded (3 × 14 cuisines via Google Places)
 
 ## Locked Decisions
 
@@ -49,7 +53,7 @@
 
 ## Pending Items
 
-- [ ] Google Places API key in use — verify it works when Restaurant seeder runs (Phase 03)
+- [ ] Execute Phase 05: swipe deck with react-tinder-card + recipe card UI + POST /api/interactions
 
 ## Known Issues / Concerns
 

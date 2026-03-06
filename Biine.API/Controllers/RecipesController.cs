@@ -35,14 +35,25 @@ public class RecipesController(AppDbContext db) : ControllerBase
             .FirstOrDefaultAsync();
 
         if (recipe == null)
-            return NotFound(new { error = "no_more_recipes" });
+            return NoContent(); // 204 — frontend treats this as "empty" state
 
+        return Ok(MapToDto(recipe, lang));
+    }
+
+    // GET /api/recipes/{id}?lang=sv
+    // Returns a specific recipe by ID in the requested language.
+    [HttpGet("{id:int}")]
+    public async Task<ActionResult<RecipeDto>> GetById(int id, [FromQuery] string lang = "sv")
+    {
+        var recipe = await db.Recipes.FindAsync(id);
+        if (recipe == null) return NotFound();
         return Ok(MapToDto(recipe, lang));
     }
 
     private static RecipeDto MapToDto(Recipe r, string lang) => new(
         Id: r.Id,
         Name: r.Name,
+        PersonaName: lang == "en" ? r.PersonaNameEn : r.PersonaNameSv,
         PersonaText: lang == "en" ? r.PersonaTextEn : r.PersonaTextSv,
         Ingredients: lang == "en" ? r.IngredientsEn : r.IngredientsSv,
         Instructions: lang == "en" ? r.InstructionsEn : r.InstructionsSv,
@@ -57,6 +68,7 @@ public class RecipesController(AppDbContext db) : ControllerBase
 public record RecipeDto(
     int Id,
     string Name,
+    string PersonaName,
     string PersonaText,
     string Ingredients,   // raw JSON string
     string Instructions,

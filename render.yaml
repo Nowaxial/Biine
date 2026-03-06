@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: biine-api
+    runtime: dotnet
+    region: frankfurt
+    plan: free
+    rootDir: Biine.API
+    buildCommand: dotnet publish -c Release -o out
+    startCommand: dotnet out/Biine.API.dll
+    envVars:
+      - key: ASPNETCORE_ENVIRONMENT
+        value: Production
+      - key: ConnectionStrings__DefaultConnection
+        sync: false   # set manually in Render dashboard
+      - key: AllowedOrigins
+        sync: false   # set to https://your-app.vercel.app after Vercel deploy

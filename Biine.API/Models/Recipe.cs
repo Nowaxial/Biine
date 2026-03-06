@@ -4,6 +4,8 @@ public class Recipe
 {
     public int Id { get; set; }
     public string Name { get; set; } = string.Empty;
+    public string PersonaNameSv { get; set; } = string.Empty;
+    public string PersonaNameEn { get; set; } = string.Empty;
     public string PersonaTextSv { get; set; } = string.Empty;
     public string PersonaTextEn { get; set; } = string.Empty;
     public string IngredientsSv { get; set; } = "[]";

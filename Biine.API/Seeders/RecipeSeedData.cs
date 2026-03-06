@@ -10,6 +10,8 @@ public static class RecipeSeedData
         {
             Id = 1,
             Name = "Carbonara",
+            PersonaNameSv = "Den Romerska Hjärtekrossaren",
+            PersonaNameEn = "The Roman Heartbreaker",
             Cuisine = "Italian",
             Difficulty = "Medium",
             CookingTime = 25,
@@ -26,6 +28,8 @@ public static class RecipeSeedData
         {
             Id = 2,
             Name = "Tacos al Pastor",
+            PersonaNameSv = "Solterrassens Vildhjärta",
+            PersonaNameEn = "The Sunset Wildling",
             Cuisine = "Mexican",
             Difficulty = "Medium",
             CookingTime = 35,
@@ -42,6 +46,8 @@ public static class RecipeSeedData
         {
             Id = 3,
             Name = "Pad Thai",
+            PersonaNameSv = "Den Balanserade Soulmate",
+            PersonaNameEn = "The Balanced Soulmate",
             Cuisine = "Thai",
             Difficulty = "Easy",
             CookingTime = 20,
@@ -58,6 +64,8 @@ public static class RecipeSeedData
         {
             Id = 4,
             Name = "Butter Chicken",
+            PersonaNameSv = "Den Sammetslenlige",
+            PersonaNameEn = "The Velvet Temptress",
             Cuisine = "Indian",
             Difficulty = "Medium",
             CookingTime = 40,
@@ -74,6 +82,8 @@ public static class RecipeSeedData
         {
             Id = 5,
             Name = "Sushi Roll",
+            PersonaNameSv = "Det Eleganta Mysteriet",
+            PersonaNameEn = "The Elegant Mystery",
             Cuisine = "Japanese",
             Difficulty = "Hard",
             CookingTime = 60,
@@ -90,6 +100,8 @@ public static class RecipeSeedData
         {
             Id = 6,
             Name = "Burger",
+            PersonaNameSv = "Det Pålitliga Paketet",
+            PersonaNameEn = "The Reliable Package",
             Cuisine = "American",
             Difficulty = "Easy",
             CookingTime = 20,
@@ -106,6 +118,8 @@ public static class RecipeSeedData
         {
             Id = 7,
             Name = "Pho",
+            PersonaNameSv = "Den Komplexa Drömmen",
+            PersonaNameEn = "The Complex Dream",
             Cuisine = "Vietnamese",
             Difficulty = "Hard",
             CookingTime = 180,
@@ -122,6 +136,8 @@ public static class RecipeSeedData
         {
             Id = 8,
             Name = "Gyros",
+            PersonaNameSv = "Medelhavscharmen",
+            PersonaNameEn = "The Mediterranean Charmer",
             Cuisine = "Greek",
             Difficulty = "Easy",
             CookingTime = 30,
@@ -138,6 +154,8 @@ public static class RecipeSeedData
         {
             Id = 9,
             Name = "Pizza Margherita",
+            PersonaNameSv = "Den Tidlösa Ikonen",
+            PersonaNameEn = "The Timeless Icon",
             Cuisine = "Italian",
             Difficulty = "Easy",
             CookingTime = 25,
@@ -154,6 +172,8 @@ public static class RecipeSeedData
         {
             Id = 10,
             Name = "Ramen",
+            PersonaNameSv = "Den Själsfulla Natten",
+            PersonaNameEn = "The Soulful Night",
             Cuisine = "Japanese",
             Difficulty = "Hard",
             CookingTime = 120,
@@ -170,6 +190,8 @@ public static class RecipeSeedData
         {
             Id = 11,
             Name = "Enchiladas",
+            PersonaNameSv = "Den Heta Hemligheten",
+            PersonaNameEn = "The Spicy Secret",
             Cuisine = "Mexican",
             Difficulty = "Medium",
             CookingTime = 45,
@@ -186,6 +208,8 @@ public static class RecipeSeedData
         {
             Id = 12,
             Name = "Tikka Masala",
+            PersonaNameSv = "Nationens Favorit",
+            PersonaNameEn = "The Nation's Favourite",
             Cuisine = "Indian",
             Difficulty = "Medium",
             CookingTime = 40,
@@ -202,6 +226,8 @@ public static class RecipeSeedData
         {
             Id = 13,
             Name = "Dumplings",
+            PersonaNameSv = "Den Lilla Hemlighållaren",
+            PersonaNameEn = "The Little Secret Keeper",
             Cuisine = "Chinese",
             Difficulty = "Medium",
             CookingTime = 60,
@@ -218,6 +244,8 @@ public static class RecipeSeedData
         {
             Id = 14,
             Name = "Schnitzel",
+            PersonaNameSv = "Den Gyllene Friaren",
+            PersonaNameEn = "The Golden Suitor",
             Cuisine = "German",
             Difficulty = "Medium",
             CookingTime = 25,
@@ -234,6 +262,8 @@ public static class RecipeSeedData
         {
             Id = 15,
             Name = "Currywurst",
+            PersonaNameSv = "Berlins Bästa Vän",
+            PersonaNameEn = "Berlin's Best Friend",
             Cuisine = "German",
             Difficulty = "Easy",
             CookingTime = 15,
@@ -250,6 +280,8 @@ public static class RecipeSeedData
         {
             Id = 16,
             Name = "Falafel",
+            PersonaNameSv = "Den Gröna Förföraren",
+            PersonaNameEn = "The Herbaceous Seducer",
             Cuisine = "Middle Eastern",
             Difficulty = "Easy",
             CookingTime = 30,
@@ -266,6 +298,8 @@ public static class RecipeSeedData
         {
             Id = 17,
             Name = "Bibimbap",
+            PersonaNameSv = "Den Färgglada Ordningsfantasten",
+            PersonaNameEn = "The Colorful Perfectionist",
             Cuisine = "Korean",
             Difficulty = "Medium",
             CookingTime = 40,
@@ -282,6 +316,8 @@ public static class RecipeSeedData
         {
             Id = 18,
             Name = "Lasagna",
+            PersonaNameSv = "Det Tålmodiga Mästerstycket",
+            PersonaNameEn = "The Patient Masterpiece",
             Cuisine = "Italian",
             Difficulty = "Hard",
             CookingTime = 90,
@@ -298,6 +334,8 @@ public static class RecipeSeedData
         {
             Id = 19,
             Name = "Chicken Wings",
+            PersonaNameSv = "Festens Obestridde Konung",
+            PersonaNameEn = "The Undisputed Party King",
             Cuisine = "American",
             Difficulty = "Easy",
             CookingTime = 40,
@@ -314,6 +352,8 @@ public static class RecipeSeedData
         {
             Id = 20,
             Name = "Poke Bowl",
+            PersonaNameSv = "Söndagsmorgonens Hjärtslaget",
+            PersonaNameEn = "The Sunday Morning Heartbeat",
             Cuisine = "Hawaiian",
             Difficulty = "Easy",
             CookingTime = 15,
@@ -330,6 +370,8 @@ public static class RecipeSeedData
         {
             Id = 21,
             Name = "Köttbullar",
+            PersonaNameSv = "Den Trygga Ikonen",
+            PersonaNameEn = "The Comforting Icon",
             Cuisine = "Swedish",
             Difficulty = "Easy",
             CookingTime = 30,
@@ -346,6 +388,8 @@ public static class RecipeSeedData
         {
             Id = 22,
             Name = "Smörgåstårta",
+            PersonaNameSv = "Kalasets Hemliga Vapen",
+            PersonaNameEn = "The Party's Secret Weapon",
             Cuisine = "Swedish",
             Difficulty = "Medium",
             CookingTime = 60,
@@ -362,6 +406,8 @@ public static class RecipeSeedData
         {
             Id = 23,
             Name = "Köttfarslimpa",
+            PersonaNameSv = "Det Pålitliga Vardagshjärtat",
+            PersonaNameEn = "The Reliable Everyday Heart",
             Cuisine = "Swedish",
             Difficulty = "Easy",
             CookingTime = 60,
@@ -378,6 +424,8 @@ public static class RecipeSeedData
         {
             Id = 24,
             Name = "Pytt i Panna",
+            PersonaNameSv = "Det Retroa Tröstpaketet",
+            PersonaNameEn = "The Retro Comfort Package",
             Cuisine = "Swedish",
             Difficulty = "Easy",
             CookingTime = 20,
@@ -394,6 +442,8 @@ public static class RecipeSeedData
         {
             Id = 25,
             Name = "Wonton Soup",
+            PersonaNameSv = "Den Mjuka Hemlighetsberättaren",
+            PersonaNameEn = "The Gentle Secret Whisperer",
             Cuisine = "Chinese",
             Difficulty = "Medium",
             CookingTime = 45,

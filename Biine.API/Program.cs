@@ -40,9 +40,10 @@ builder.Services.AddCors(options =>
             .WithOrigins(
                 "http://localhost:4321",      // Astro dev server
                 "http://localhost:3000",
-                "https://*.vercel.app",       // Vercel preview/prod
-                builder.Configuration["AllowedOrigins"] ?? "" // env override
+                "https://biine.vercel.app",   // Vercel prod (update after deploy)
+                builder.Configuration["AllowedOrigins"] ?? "" // env override for exact prod URL
             )
+            .SetIsOriginAllowedToAllowWildcardSubdomains() // allows *.vercel.app previews
             .AllowAnyHeader()
             .AllowAnyMethod();
     });
@@ -78,9 +79,15 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
-
+// CORS must come before HTTPS redirection — otherwise the 307 redirect
+// is sent without CORS headers and the browser blocks it.
 app.UseCors("Frontend");
+
+// Skip HTTPS redirection in development — no local cert, causes 307 loop
+if (!app.Environment.IsDevelopment())
+{
+    app.UseHttpsRedirection();
+}
 
 app.UseRateLimiter();
 

@@ -17,8 +17,8 @@
 |---|-------|-------|--------|
 | 01 | Backend Foundation | EF Core models, migrations, DB schema | ✅ Complete |
 | 02 | Backend API | All 4 API endpoints with business logic | ✅ Complete |
-| 03 | Restaurant Seeder | Google Places → PostgreSQL seed script | Planned |
-| 04 | Frontend Shell | Astro + Mantine + PWA scaffold | Planned |
+| 03 | Restaurant Seeder | Google Places → PostgreSQL seed script | ✅ Complete |
+| 04 | Frontend Shell | Astro + Mantine + PWA scaffold | ✅ Complete |
 | 05 | Swipe Deck | react-tinder-card + recipe fetch + session | Planned |
 | 06 | Match Flow | Match modal + recipe reveal + restaurant card | Planned |
 | 07 | Polish & Deploy | Bilingual UI, error states, deploy Vercel + Render | Planned |
@@ -64,7 +64,7 @@ Plans:
 **Plans:** 1 plan
 
 Plans:
-- [ ] 03-01-PLAN.md — Google Places seeder script (dotnet run seeder, cuisines list)
+- [x] 03-01-PLAN.md — Google Places seeder script (dotnet run seeder, cuisines list) — 42 restaurants seeded
 
 ---
 
@@ -77,8 +77,8 @@ Plans:
 **Plans:** 2 plans
 
 Plans:
-- [ ] 04-01-PLAN.md — Astro init + Mantine + React integration + PWA plugin
-- [ ] 04-02-PLAN.md — Onboarding overlay (3 slides, skip button, localStorage flag)
+- [x] 04-01-PLAN.md — Astro init + Mantine + React integration + PWA plugin
+- [x] 04-02-PLAN.md — Onboarding overlay (3 slides, skip button, localStorage flag)
 
 ---
 
