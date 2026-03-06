@@ -16,7 +16,7 @@
 | # | Phase | Focus | Status |
 |---|-------|-------|--------|
 | 01 | Backend Foundation | EF Core models, migrations, DB schema | ✅ Complete |
-| 02 | Backend API | All 4 API endpoints with business logic | Planned |
+| 02 | Backend API | All 4 API endpoints with business logic | ✅ Complete |
 | 03 | Restaurant Seeder | Google Places → PostgreSQL seed script | Planned |
 | 04 | Frontend Shell | Astro + Mantine + PWA scaffold | Planned |
 | 05 | Swipe Deck | react-tinder-card + recipe fetch + session | Planned |
@@ -50,8 +50,8 @@ Plans:
 **Plans:** 2 plans
 
 Plans:
-- [ ] 02-01-PLAN.md — RecipesController + InteractionsController + DecisionsController
-- [ ] 02-02-PLAN.md — RestaurantsController + CORS + rate limiting middleware
+- [x] 02-01-PLAN.md — RecipesController + InteractionsController + DecisionsController
+- [x] 02-02-PLAN.md — RestaurantsController + TranslationsController + CORS + rate limiting
 
 ---
 

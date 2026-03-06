@@ -6,8 +6,8 @@
 
 ## Current Position
 
-**Phase:** 02 — Backend API  
-**Status:** Phase 01 complete. Ready to execute Phase 02.
+**Phase:** 03 — Restaurant Seeder  
+**Status:** Phases 01 + 02 complete. Ready to execute Phase 03.
 
 ## What Exists
 
@@ -18,7 +18,10 @@
 - Models: `Recipe`, `Restaurant`, `Interaction`, `Translation`
 - Seeders: `RecipeSeedData` (25 recipes), `TranslationSeedData` (28 UI strings)
 - Migration: `InitialCreate` applied
-- **No controllers yet**
+- Controllers: `RecipesController`, `InteractionsController`, `DecisionsController`, `RestaurantsController`, `TranslationsController`
+- CORS configured (`Frontend` policy, localhost:4321 + *.vercel.app)
+- Rate limiting: 30 req/min per session (fixed window)
+- EF Core retry on failure (3 retries, 5s delay) for Neon cold starts
 
 ### Frontend
 - Nothing yet
