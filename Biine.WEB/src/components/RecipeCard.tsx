@@ -1,4 +1,4 @@
-import { Card, Image, Text, Badge, Group, Stack } from '@mantine/core';
+import { Card, Text, Badge, Group, Stack } from '@mantine/core';
 import type { Recipe } from '../hooks/useRecipe';
 
 interface Props {
@@ -29,12 +29,18 @@ export default function RecipeCard({ recipe }: Props) {
       }}
       p={0}
     >
-      <Card.Section>
-        <Image
+      <Card.Section style={{ overflow: 'hidden', height: 320 }}>
+        <img
           src={recipe.imageUrl}
-          height={320}
           alt={recipe.name}
-          style={{ objectFit: 'cover', pointerEvents: 'none' }}
+          style={{
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            objectPosition: 'center',
+            display: 'block',
+            pointerEvents: 'none',
+          }}
         />
       </Card.Section>
 
