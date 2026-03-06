@@ -91,10 +91,38 @@ export default function SwipeDeck({ lang }: Props) {
 
     // Fetch a matching restaurant
     setRestaurantLoading(true);
+
+    // Try to get user's location
+    const getLocationParams = (): Promise<{ lat: number; lng: number } | null> => {
+      return new Promise((resolve) => {
+        if (!navigator.geolocation) {
+          resolve(null);
+          return;
+        }
+        navigator.geolocation.getCurrentPosition(
+          (position) => {
+            resolve({
+              lat: position.coords.latitude,
+              lng: position.coords.longitude,
+            });
+          },
+          () => resolve(null), // Permission denied or error
+          { timeout: 5000, maximumAge: 60000 }
+        );
+      });
+    };
+
     try {
-      const res = await fetch(
-        `${API_URL}/api/restaurants/match?cuisine=${encodeURIComponent(matchedRecipeSnapshot.cuisine)}&lang=${lang}`
-      );
+      // Get user's location
+      const location = await getLocationParams();
+
+      // Build URL with optional location params
+      let url = `${API_URL}/api/restaurants/match?cuisine=${encodeURIComponent(matchedRecipeSnapshot.cuisine)}&lang=${lang}`;
+      if (location) {
+        url += `&lat=${location.lat}&lng=${location.lng}`;
+      }
+
+      const res = await fetch(url);
       if (res.ok) {
         const data: Restaurant = await res.json();
         setRestaurant(data);
