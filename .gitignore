@@ -1,0 +1,32 @@
+# .NET
+bin/
+obj/
+*.user
+appsettings.Development.json
+appsettings.*.json
+!appsettings.json
+
+# Secrets
+*.env
+.env
+.env.*
+
+# Node
+node_modules/
+dist/
+.astro/
+
+# VS
+.vs/
+*.suo
+*.ncrunchsolution
+
+# JetBrains
+.idea/
+
+# Planning outputs (keep planning files but not temp)
+.planning/phases/**/*-SUMMARY.md
+
+# OS
+.DS_Store
+Thumbs.db
