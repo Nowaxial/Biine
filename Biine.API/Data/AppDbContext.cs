@@ -1,4 +1,5 @@
 using Biine.API.Models;
+using Biine.API.Seeders;
 using Microsoft.EntityFrameworkCore;
 
 namespace Biine.API.Data;
@@ -44,5 +45,9 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(op
             .WithMany(r => r.Interactions)
             .HasForeignKey(i => i.RecipeId)
             .OnDelete(DeleteBehavior.Cascade);
+
+        // Seed data
+        modelBuilder.Entity<Recipe>().HasData(RecipeSeedData.GetRecipes());
+        modelBuilder.Entity<Translation>().HasData(TranslationSeedData.GetTranslations());
     }
 }

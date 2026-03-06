@@ -15,7 +15,7 @@
 
 | # | Phase | Focus | Status |
 |---|-------|-------|--------|
-| 01 | Backend Foundation | EF Core models, migrations, DB schema | Planned |
+| 01 | Backend Foundation | EF Core models, migrations, DB schema | ✅ Complete |
 | 02 | Backend API | All 4 API endpoints with business logic | Planned |
 | 03 | Restaurant Seeder | Google Places → PostgreSQL seed script | Planned |
 | 04 | Frontend Shell | Astro + Mantine + PWA scaffold | Planned |
@@ -36,8 +36,8 @@
 **Plans:** 2 plans
 
 Plans:
-- [ ] 01-01-PLAN.md — EF Core models (Recipe, Restaurant, Interaction, Translation)
-- [ ] 01-02-PLAN.md — EF migration + Neon deploy + recipe seed data (25 recipes)
+- [x] 01-01-PLAN.md — EF Core models (Recipe, Restaurant, Interaction, Translation)
+- [x] 01-02-PLAN.md — EF migration + Neon deploy + recipe seed data (25 recipes)
 
 ---
 

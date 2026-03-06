@@ -6,25 +6,27 @@
 
 ## Current Position
 
-**Phase:** Not started  
-**Status:** Planning complete, ready to execute
+**Phase:** 02 — Backend API  
+**Status:** Phase 01 complete. Ready to execute Phase 02.
 
 ## What Exists
 
 ### Backend (Biine.API)
 - .NET 10 Web API project scaffolded
-- `AppDbContext` stub (no models yet)
+- `AppDbContext` with all 4 DbSets + `OnModelCreating` (JSONB, decimal precision, FK, seed data)
 - `Program.cs` with EF Core + Swagger + Npgsql wired up
-- NuGet packages: Npgsql.EF, Swashbuckle, Microsoft.AspNetCore.OpenApi
-- UserSecretsId configured for local dev secrets
-- **No controllers, no models, no migrations**
+- Models: `Recipe`, `Restaurant`, `Interaction`, `Translation`
+- Seeders: `RecipeSeedData` (25 recipes), `TranslationSeedData` (28 UI strings)
+- Migration: `InitialCreate` applied
+- **No controllers yet**
 
 ### Frontend
 - Nothing yet
 
-### Database
-- Neon account needed (user to set up)
-- No schema deployed
+### Database (Neon PostgreSQL)
+- ✅ Schema deployed — 5 tables: `Recipes`, `Restaurants`, `Interactions`, `Translations`, `__EFMigrationsHistory`
+- ✅ 25 recipes seeded
+- ✅ 28 translation strings seeded
 
 ## Locked Decisions
 
@@ -44,11 +46,9 @@
 
 ## Pending Items
 
-- [ ] Neon database connection string (user must create Neon project)
-- [ ] Google Places API key (user must enable in Google Cloud Console)
-- [ ] Unsplash source URLs for recipe images
+- [ ] Google Places API key in use — verify it works when Restaurant seeder runs (Phase 03)
 
 ## Known Issues / Concerns
 
-- EF Core packages installed but `dotnet restore` not run → LSP errors (not a real problem, just needs restore)
-- 24 recipes in PRD; MVP target is 25 — 1 more recipe needed in seed data
+- LSP errors on `AppDbContext.cs` and `Program.cs` are false positives — `dotnet build` succeeds with 0 errors
+- Neon connection string must be in ADO.NET key-value format, not URI format (already corrected in user-secrets)
