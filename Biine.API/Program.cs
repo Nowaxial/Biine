@@ -1,9 +1,27 @@
 using Biine.API.Data;
+using Biine.API.Seeders;
 using Microsoft.AspNetCore.RateLimiting;
 using Microsoft.EntityFrameworkCore;
 using System.Threading.RateLimiting;
 
 var builder = WebApplication.CreateBuilder(args);
+
+// ── Seeder mode: dotnet run -- --seed-restaurants ─────────────────────────────
+if (args.Contains("--seed-restaurants"))
+{
+    builder.Services.AddDbContext<AppDbContext>(options =>
+        options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+    var seedApp = builder.Build();
+    using var scope = seedApp.Services.CreateScope();
+    var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+    var apiKey = builder.Configuration["GooglePlaces:ApiKey"]
+        ?? throw new InvalidOperationException("GooglePlaces:ApiKey is not set in user-secrets");
+
+    await RestaurantSeeder.SeedAsync(db, apiKey);
+    return;
+}
+// ─────────────────────────────────────────────────────────────────────────────
 
 // Database
 // EnableRetryOnFailure handles Neon cold-start transient failures (free tier wakes up slowly)
