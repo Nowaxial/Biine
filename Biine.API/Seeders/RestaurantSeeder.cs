@@ -10,6 +10,15 @@ namespace Biine.API.Seeders;
 /// <summary>
 /// Seeds restaurants from Google Places API (Text Search v1).
 /// Run via: dotnet run --project Biine.API -- --seed-restaurants
+/// 
+/// Optional arguments:
+///   --lat <value>      Latitude for search center (default: 57.7089 Göteborg)
+///   --lng <value>      Longitude for search center (default: 11.9746)
+///   --radius <value>  Search radius in meters (default: 8000)
+///   --city <name>     City name for search query (default: Göteborg Sweden)
+/// 
+/// Example:
+///   dotnet run --project Biine.API -- --seed-restaurants --lat 59.3293 --lng 18.0686 --radius 15000 --city "Stockholm Sweden"
 /// </summary>
 public static class RestaurantSeeder
 {
@@ -21,9 +30,23 @@ public static class RestaurantSeeder
         "Middle Eastern", "Swedish", "Thai", "Vietnamese"
     ];
 
-    public static async Task SeedAsync(AppDbContext db, string apiKey)
+    public static async Task SeedAsync(
+        AppDbContext db, 
+        string apiKey,
+        double? lat = null,
+        double? lng = null,
+        double? radius = null,
+        string? city = null)
     {
+        // Default to Göteborg if not specified
+        var centerLat = lat ?? 57.7089;
+        var centerLng = lng ?? 11.9746;
+        var searchRadius = radius ?? 8000.0;
+        var cityQuery = city ?? "Göteborg Sweden";
+
         Console.WriteLine("=== Restaurant Seeder ===");
+        Console.WriteLine($"  Location: {centerLat}, {centerLng} (radius: {searchRadius}m)");
+        Console.WriteLine($"  City query: {cityQuery}");
 
         // Clear existing restaurants to allow re-runs
         var existing = await db.Restaurants.CountAsync();
@@ -49,7 +72,7 @@ public static class RestaurantSeeder
 
             try
             {
-                var results = await SearchPlacesAsync(http, cuisine);
+                var results = await SearchPlacesAsync(http, cuisine, centerLat, centerLng, searchRadius, cityQuery);
                 var restaurants = results
                     .Take(3)
                     .Select(p => MapToRestaurant(p, cuisine))
@@ -79,18 +102,24 @@ public static class RestaurantSeeder
         Console.WriteLine($"\n✅ Seeded {totalAdded} restaurants across {Cuisines.Length} cuisines.");
     }
 
-    private static async Task<List<PlaceResult>> SearchPlacesAsync(HttpClient http, string cuisine)
+    private static async Task<List<PlaceResult>> SearchPlacesAsync(
+        HttpClient http, 
+        string cuisine,
+        double centerLat,
+        double centerLng,
+        double radius,
+        string cityQuery)
     {
         var body = new
         {
-            textQuery = $"{cuisine} restaurant Göteborg Sweden",
+            textQuery = $"{cuisine} restaurant {cityQuery}",
             languageCode = "sv",
             locationBias = new
             {
                 circle = new
                 {
-                    center = new { latitude = 57.7089, longitude = 11.9746 }, // Göteborg city center
-                    radius = 8000.0
+                    center = new { latitude = centerLat, longitude = centerLng },
+                    radius = radius
                 }
             },
             maxResultCount = 5

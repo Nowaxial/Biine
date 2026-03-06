@@ -18,8 +18,32 @@ if (args.Contains("--seed-restaurants"))
     var apiKey = builder.Configuration["GooglePlaces:ApiKey"]
         ?? throw new InvalidOperationException("GooglePlaces:ApiKey is not set in user-secrets");
 
-    await RestaurantSeeder.SeedAsync(db, apiKey);
+    // Parse optional location arguments
+    double? lat = GetArgValue(args, "--lat");
+    double? lng = GetArgValue(args, "--lng");
+    double? radius = GetArgValue(args, "--radius");
+    string? city = GetArgString(args, "--city");
+
+    await RestaurantSeeder.SeedAsync(db, apiKey, lat, lng, radius, city);
     return;
+}
+
+// Helper to parse double arguments
+static double? GetArgValue(string[] args, string name)
+{
+    var idx = Array.IndexOf(args, name);
+    if (idx >= 0 && idx + 1 < args.Length && double.TryParse(args[idx + 1], out var val))
+        return val;
+    return null;
+}
+
+// Helper to parse string arguments
+static string? GetArgString(string[] args, string name)
+{
+    var idx = Array.IndexOf(args, name);
+    if (idx >= 0 && idx + 1 < args.Length)
+        return args[idx + 1];
+    return null;
 }
 // ─────────────────────────────────────────────────────────────────────────────
 
